@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum 5 - JS Lanjutan</title>
+  </head>
+  <body>
+    1. Event Pertama <br />
+    <a href="#" onclick="eventPertama('Mario')">Click Me</a>
+    <br />
+    2. Event kedua<br />
+    Username: <input type="text" id="username" /><br />
+    Password: <input type="password" id="password" /><br />
+    <a href="#" onclick="eventKedua()">Login</a>
+    <br />
+    3. Event Ketiga
+    <br />
+    <img src="./img/gambar1.avif" width="250px" alt="" onmouseout="eventKeempat(this)" onmouseover="eventKetiga(this)" /><br />
+    <h2>4. Operator</h2>
+    <br />
+    <input type="text" name="" id="nilai" oninput="cekNilai()" /><br />
+    <lable id="note">Lulus</lable>
+    <br />
+    5. Perulangan <br /><br />
+    <div id="canvas"></div>
+    <script>
+      // Membuat fungsi onclick
+      function eventPertama(nama) {
+        alert("Hello " + nama);
+      }
+      function eventKedua() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        if (username == "mario" && password == "1234") {
+          alert("Login berhasil");
+        } else {
+          alert("Username atau password salah");
+        }
+      }
+      function eventKetiga(img) {
+        img.src = "./img/gambar2.jpg";
+      }
+      function eventKeempat(img) {
+        img.src = "./img/gambar1.avif";
+      }
+      function cekNilai() {
+        let nilai = document.getElementById("nilai").value;
+        let note = document.getElementById("note");
+        note.style.fontSize = "x-large";
+        if (nilai >= 50) {
+          note.innerHTML = nilai + " = Selamat Anda Lulus";
+          note.style.color = "green";
+        } else {
+          note.innerHTML = nilai + " = Mohon Bersabar";
+          note.style.color = "red";
+        }
+      }
+
+      const mobil = ["Toyota", "Mitsubishi", "Wuling"];
+      let text = "";
+      for (let i = 0; i < mobil.length; i++) {
+        text += "- " + mobil[i] + " <br>";
+      }
+      document.getElementById("canvas").innerHTML = text;
+    </script>
+  </body>
+</html>
